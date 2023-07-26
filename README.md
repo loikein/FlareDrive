@@ -23,9 +23,16 @@ Before starting, you should make sure that
 Steps:
 
 1. Fork this project and connect your fork with CloudFlare Pages \([Deploy your site · Cloudflare Pages docs](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/)\)
-2. Add a custom domain
+2. Add a custom domain \(Optional; you must make Cloudflare your nameserver to enable authentication, see below.\)
 3. Bind your R2 bucket to `BUCKET` varaible
 4. Manually redeploy to make R2 bindings take effect
+
+Cloudflare pages settings:
+
+- Framework preset: `None`
+- Build command: \(empty\)
+- Build output directory: \(empty\)
+- Functions > R2 bucket bindings: `BUCKET` - (select your bucket from dropdown menu)
 
 ### Authentication
 
@@ -33,5 +40,11 @@ There is no built-in authentication support. By default everyone can read and wr
 
 1. Enable CloudFlare Zero Trust
 2. In **Access**->**Applications**, create a self-hosted application
-3. Set **Path** as `api/write/` to disable public write or leave it blank to disable public read
-4. Create a policy which accepts your email only
+3. Delete the `*` from subdomain
+4. Set **Path** as `api/write/` to disable public write or leave it blank to disable public read
+5. Create a policy which accepts your email only
+
+If you have added a custom domain:
+
+1. Add the domain to Cloudflare websites. You will be given instructions to change DNS of your whole domain.
+2. Follow steps 10 \~ 12 of the Enabling Access documentation.
