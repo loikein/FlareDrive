@@ -22,14 +22,14 @@ Before starting, you should make sure that
 
 Steps:
 
-1. Fork this project and connect your fork with CloudFlare Pages
+1. Fork this project and connect your fork with CloudFlare Pages \([Deploy your site · Cloudflare Pages docs](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/)\)
 2. Add a custom domain
 3. Bind your R2 bucket to `BUCKET` varaible
 4. Manually redeploy to make R2 bindings take effect
 
 ### Authentication
 
-There is no built-in authentication support. By default everyone can read and write your storage. But CloudFlare Zero Trust can be used to protect your data. Do these steps to enable authentication:
+There is no built-in authentication support. By default everyone can read and write your storage. But CloudFlare Zero Trust can be used to protect your data. Do these steps to enable authentication: \([Enabling Access on your `*.pages.dev` domain · Cloudflare Pages docs](https://developers.cloudflare.com/pages/platform/known-issues/#enabling-access-on-your-pagesdev-domain)\)
 
 1. Enable CloudFlare Zero Trust
 2. In **Access**->**Applications**, create a self-hosted application
